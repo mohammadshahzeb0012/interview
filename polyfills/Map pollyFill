@@ -1,0 +1,28 @@
+const arr = [99,101,8,1];
+
+// delete Array.prototype.map;
+
+// // callback fn will be passed by user
+Array.prototype.map = function (callback) {
+  const result = [];
+  // this -> array with which we
+  // have called it
+  for (let i = 0; i < this.length; i++) {
+    // my this is representing array
+    // this[i] -> represents current array
+    result.push(callback(this[i], i, this));
+  }
+
+  return result;
+};
+
+const mapOutput = arr.map((item, index, arr) => {
+    if(item>100){
+        return 0;
+    }
+    else{
+        return item;
+    }
+});
+
+console.log(mapOutput);
